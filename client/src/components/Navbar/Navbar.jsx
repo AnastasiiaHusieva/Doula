@@ -9,7 +9,7 @@ function Navbar() {
   return (
     <nav className="bg-beige-dark h-12 opacity-1">
       <Link to="/">
-        <button>Home</button>
+    
       </Link>
 
       {isLoggedIn && (
