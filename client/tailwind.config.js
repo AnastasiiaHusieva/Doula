@@ -8,9 +8,10 @@ module.exports = {
       },
       colors: {
         beige: {
-          light: '#EECEB0',
-          dark: '#A96449',
-          lightest: '#FDFDFD'
+          light: "#EECEB0",
+          dark: "#A96449",
+          lightest: "#FDFDFD",
+          // lightest: '#FDFDFD'
         },
       },
     },
