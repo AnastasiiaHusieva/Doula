@@ -22,11 +22,9 @@ router.post("/create", async (req, res) => {
     appointmentTime,
     message,
   } = req.body;
-
   if (!email) {
     return res.status(400).json({ error: "Email is required." });
   }
-
   try {
     console.log("Received a form submission with email:", email);
     const newAppointment = await Appointments.create({
@@ -38,11 +36,9 @@ router.post("/create", async (req, res) => {
       appointmentTime,
       message,
     });
-
     await User.findByIdAndUpdate(userId, {
       $push: { appointments: newAppointment._id },
     });
-
     console.log("New appointment created:", newAppointment);
     res.status(201).json(newAppointment);
   } catch (err) {

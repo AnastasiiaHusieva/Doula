@@ -5,6 +5,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import listPlugin from "@fullcalendar/list";
+import PopUp from '../PopUp/PopUp'
 import "@fullcalendar/core"; // Import the main.css file
 import "../../App.css";
 import { AuthContext } from "../../context/auth.context";
@@ -12,7 +13,7 @@ const MyCalendar = () => {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
-    phone: "",
+    phoneNumber: "",
     appointmentDate: "",
     appointmentTime: "",
     message: "",
@@ -20,6 +21,8 @@ const MyCalendar = () => {
   const [appointments, setAppointments] = useState([]);
   const [loading, setLoading] = useState(false);
   const { user } = useContext(AuthContext);
+  const [isPopupOpen, setPopupOpen] = useState(false);
+  const [selectedEvent, setSelectedEvent] = useState(null); 
 
   useEffect(() => {
     const getAllAppointments = async () => {
@@ -28,7 +31,7 @@ const MyCalendar = () => {
           `${process.env.REACT_APP_SERVER_URL}/appointments`
         );
         setAppointments(response.data);
-        console.log(response.data);
+        console.log("hellloooo", response.data);
       } catch (err) {
         console.log(err);
       }
@@ -70,8 +73,21 @@ const MyCalendar = () => {
     console.log("Form submitted:", formData);
   };
 
+  const handleEventClick = (e) => {
+    setSelectedEvent(e.event);
+    console.log(e.event)
+  };
+
+  const openPopup = () => {
+    setPopupOpen(true);
+  };
+
+  const closePopup = () => {
+    setPopupOpen(false);
+  };
+
   return (
-    <div className="screen-xs ">
+    <div className="screen-xs relative">
       <img
         className="w-full h-full absolute inset-0 z-[-1] opacity-88"
         src="/photos/ann-sophi.jpg"
@@ -112,8 +128,8 @@ const MyCalendar = () => {
               className="rounded-lg pl-2"
               type="tel"
               id="phone"
-              name="phone"
-              value={formData.phone}
+              name="phoneNumber"
+              value={formData.phoneNumber}
               onChange={handleChange}
               required
             />
@@ -171,13 +187,15 @@ const MyCalendar = () => {
               interactionPlugin,
             ]}
             events={appointments.map((appointment) => ({
-              title: `${appointment.fullName}-${appointment.message}`,
-              description: appointment.email,
+              title: `${appointment.fullName}`,
+              message: `${appointment.message}`,
+              email: appointment.email,
+              phoneNumber: appointment.phoneNumber,
               start: new Date(
                 appointment.appointmentDate.slice(0, 10) +
-                  "T" +
-                  appointment.appointmentTime +
-                  ":00.000Z"
+                "T" +
+                appointment.appointmentTime +
+                ":00.000Z"
               ).toISOString(),
             }))}
             headerToolbar={{
@@ -186,9 +204,16 @@ const MyCalendar = () => {
               right: "dayGridMonth,timeGridWeek,timeGridDay",
             }}
             timeZone="UTC"
+            eventClick={handleEventClick}
           />
         </div>
       </div>
+      {selectedEvent && (
+        <PopUp
+          eventInfo={selectedEvent}
+          onClose={closePopup}
+        />
+      )}
     </div>
   );
 };

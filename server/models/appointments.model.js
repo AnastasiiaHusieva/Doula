@@ -5,9 +5,7 @@ const appointmentSchema = new Schema(
   {
     fullName: String,
     email: String,
-    phoneNumber: {
-      type: Number,
-    },
+    phoneNumber: Number, 
     appointmentDate: {
       type: Date,
     },
