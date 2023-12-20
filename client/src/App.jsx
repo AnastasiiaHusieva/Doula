@@ -9,6 +9,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
+import Calendar from "./components/Calendar/Calendar";
 
 function App() {
   return (
@@ -18,14 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
 
-        <Route
-          path="/profile"
-          element={
-            <IsPrivate>
-              <ProfilePage />
-            </IsPrivate>
-          }
-        />
+        <Route path="/calendar" element={<Calendar />} />
 
         <Route
           path="/signup"

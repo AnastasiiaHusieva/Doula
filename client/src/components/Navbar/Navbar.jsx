@@ -8,9 +8,7 @@ function Navbar() {
 
   return (
     <nav className="bg-beige-dark h-12 opacity-1">
-      <Link to="/">
-    
-      </Link>
+      <Link to="/"></Link>
 
       {isLoggedIn && (
         <>
@@ -37,6 +35,12 @@ function Navbar() {
           </Link>
         </>
       )}
+      <>
+        <Link to="/calendar">
+          <button>My Calendar</button>
+          {/* <img src="https://picsum.photos/id/402/200/300" style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" /> */}
+        </Link>
+      </>
     </nav>
   );
 }
