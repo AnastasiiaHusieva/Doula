@@ -5,7 +5,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import listPlugin from "@fullcalendar/list";
-import PopUp from '../PopUp/PopUp'
+import PopUp from "../PopUp/PopUp";
 import "@fullcalendar/core"; // Import the main.css file
 import "../../App.css";
 import { AuthContext } from "../../context/auth.context";
@@ -18,11 +18,12 @@ const MyCalendar = () => {
     appointmentTime: "",
     message: "",
   });
+  console.log("hahahahah", formData);
   const [appointments, setAppointments] = useState([]);
   const [loading, setLoading] = useState(false);
   const { user } = useContext(AuthContext);
   const [isPopupOpen, setPopupOpen] = useState(false);
-  const [selectedEvent, setSelectedEvent] = useState(null); 
+  const [selectedEvent, setSelectedEvent] = useState(null);
 
   useEffect(() => {
     const getAllAppointments = async () => {
@@ -75,7 +76,7 @@ const MyCalendar = () => {
 
   const handleEventClick = (e) => {
     setSelectedEvent(e.event);
-    console.log(e.event)
+    console.log("why am i not getting the time and", e.event);
   };
 
   const openPopup = () => {
@@ -87,7 +88,7 @@ const MyCalendar = () => {
   };
 
   return (
-    <div className="screen-xs relative">
+    <div className="screen-xs relative min-h-screen">
       <img
         className="w-full h-full absolute inset-0 z-[-1] opacity-88"
         src="/photos/ann-sophi.jpg"
@@ -191,11 +192,17 @@ const MyCalendar = () => {
               message: `${appointment.message}`,
               email: appointment.email,
               phoneNumber: appointment.phoneNumber,
+              appointmentDate: new Date(
+                appointment.appointmentDate.slice(0, 10) +
+                  "T" +
+                  appointment.appointmentTime +
+                  ":00.000Z"
+              ).toISOString(),
               start: new Date(
                 appointment.appointmentDate.slice(0, 10) +
-                "T" +
-                appointment.appointmentTime +
-                ":00.000Z"
+                  "T" +
+                  appointment.appointmentTime +
+                  ":00.000Z"
               ).toISOString(),
             }))}
             headerToolbar={{
@@ -209,10 +216,7 @@ const MyCalendar = () => {
         </div>
       </div>
       {selectedEvent && (
-        <PopUp
-          eventInfo={selectedEvent}
-          onClose={closePopup}
-        />
+        <PopUp eventInfo={selectedEvent} onClose={closePopup} />
       )}
     </div>
   );

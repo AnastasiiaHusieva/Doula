@@ -13,9 +13,7 @@ import Calendar from "./components/Calendar/Calendar";
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-
+    <div className="App ">
       <Routes>
         <Route path="/" element={<HomePage />} />
 

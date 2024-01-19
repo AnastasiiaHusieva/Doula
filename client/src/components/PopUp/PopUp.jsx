@@ -1,23 +1,40 @@
-import React from 'react';
-
+import React from "react";
+import "../PopUp/PopUp.css";
 const Popup = ({ eventInfo }) => {
-
-  const popupStyle = {
-    position: 'fixed',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    background: '#fff',
-    padding: '20px',
-    borderRadius: '5px',
-    boxShadow: '0 0 10px rgba(0, 0, 0, 0.3)',
-  };
-
   return (
-    <div  style={popupStyle}>
-      <div className="popup-content">
-        <div>{eventInfo._def.title}</div>
-        <p>This is your pop-up content.</p>
+    <div>
+      <div className="popupStyle">
+        <div className="popup-content text-black h-70">
+          <h1 className="text-lg text-beige-light p-.5 bg-beige-dark rounded mb-7">
+            {eventInfo._def.title}
+          </h1>
+          <div className="text-left">
+            <p className="pb-5">
+              <strong>Email: </strong> {eventInfo._def.extendedProps.email}
+            </p>
+            <p className="pb-5">
+              <strong>Message: </strong>
+
+              {eventInfo._def.extendedProps.message}
+            </p>
+            <p className="pb-5">
+              {" "}
+              <strong>Phone: </strong>
+              {eventInfo._def.extendedProps.phoneNumber}
+            </p>
+            <p className="pb-5">
+              {" "}
+              <strong>Appointment Date & Time:</strong> <br></br>
+              {new Date(
+                eventInfo._def.extendedProps.appointmentDate
+              ).toLocaleString("de-DE", { timeZone: "UTC" })}
+            </p>
+            <div className="text-right flex justify-between pointer">
+              <button className="bg-white pl-2 pr-2 rounded">delete</button>
+              <button className="bg-white pl-2 pr-2 rounded">edit</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
