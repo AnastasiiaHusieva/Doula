@@ -18,6 +18,7 @@ function Banner(id) {
       {/* {isMobile && <p>YOOOOOOOOO</p>} */}
       <div className="wavy-border-container">
         <img className='min-w-full' src="/photos/Icons/Doula Logo.jpg" alt="Logo" />
+        <img className='min-w-full' src="/photos/background.png" alt="Logo" />
       </div>
     </div>
   );
