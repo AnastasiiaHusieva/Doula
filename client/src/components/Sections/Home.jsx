@@ -1,12 +1,12 @@
 function Home() {
   return (
     <div id='Home'>
-      <div>
+      <div className='flex'>
         <img src="" alt="" />
-        <div>
-          <h1 className='font-lora'>Spüren.</h1>
-          <h1>Halten.</h1>
-          <h1>Begleiten.</h1>
+        <div className='flex flex-col '>
+          <h1 className='text-5xl'>Spüren.</h1>
+          <h1 className='text-5xl'>Halten.</h1>
+          <h1 className='text-5xl'>Begleiten.</h1>
         </div>
       </div>
       <p>Ich heiße Ann-Sofie und bin Doula in Heidelberg.</p>

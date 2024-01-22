@@ -7,6 +7,10 @@ body {
   margin: 0;
 }
 
+p, h1, h2, h3 {
+  font-family: 'lora', serif;
+}
+
 .wavy-border-container {
   display: inline-block;
   position: relative;

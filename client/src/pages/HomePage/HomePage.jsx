@@ -33,10 +33,10 @@ function HomePage() {
     <div className="bg-white">
        <Navbar scrollToComponent={scrollToComponent} />
       <Banner id='Banner'/>
-      <Contacts id='Contacts'/>
       <Home id='Home'/>
       <Wegbegleitung/>
       <Schwangerschaft/>
+      <Contacts id='Contacts'/>
       <Footer/>
     </div>
   );
