@@ -1,12 +1,12 @@
 function Home() {
   return (
     <div id='Home'>
-      <div className='flex'>
-        <img src="" alt="" />
+      <div className='flex justify-between'>
+        <img className='w-1/2 ml-10 rounded-xl' src="/photos/PersonalPhotos/NZ6_0602.jpg" alt="FirstPhoto" />
         <div className='flex flex-col '>
-          <h1 className='text-5xl'>Spüren.</h1>
-          <h1 className='text-5xl'>Halten.</h1>
-          <h1 className='text-5xl'>Begleiten.</h1>
+          <h1 className='text-8xl'>Spüren.</h1>
+          <h1 className='text-8xl'>Halten.</h1>
+          <h1 className='text-8xl'>Begleiten.</h1>
         </div>
       </div>
       <p>Ich heiße Ann-Sofie und bin Doula in Heidelberg.</p>

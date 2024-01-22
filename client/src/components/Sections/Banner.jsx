@@ -16,9 +16,9 @@ function Banner(id) {
   return (
     <div id={`AboutMe`}>
       {/* {isMobile && <p>YOOOOOOOOO</p>} */}
-      <div className="wavy-border-container">
-        <img className='min-w-full' src="/photos/Icons/Doula Logo.jpg" alt="Logo" />
-        <img className='min-w-full' src="/photos/background.png" alt="Logo" />
+      <div className="">
+        {/* <img className='min-w-full' src="/photos/Icons/Doula Logo.jpg" alt="Logo" /> */}
+        <img className='min-w-full' src="/photos/banner.png" alt="Logo" />
       </div>
     </div>
   );
