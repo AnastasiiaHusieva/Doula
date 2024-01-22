@@ -18,7 +18,7 @@ function Banner(id) {
       {/* {isMobile && <p>YOOOOOOOOO</p>} */}
       <div className="">
         {/* <img className='min-w-full' src="/photos/Icons/Doula Logo.jpg" alt="Logo" /> */}
-        <img className='min-w-full' src="/photos/banner.png" alt="Logo" />
+        <img className='min-w-full' src="/photos/icons/banner.png" alt="Logo" />
       </div>
     </div>
   );
