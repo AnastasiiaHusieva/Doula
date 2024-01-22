@@ -1,7 +1,26 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
 
 body {
   margin: 0;
 }
+
+.wavy-border-container {
+  display: inline-block;
+  position: relative;
+}
+
+.wavy-border-container::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+  height: 20px; 
+  /* background-image: url('path-to-your-wave-image.png');  */
+  background-size: cover;
+}
+
+

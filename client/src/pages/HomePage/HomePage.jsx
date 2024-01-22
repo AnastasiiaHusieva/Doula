@@ -1,9 +1,11 @@
 import "./HomePage.css";
 import Navbar from "./../../components/Navbar/Navbar";
 import Footer from "./../../components/Footer/Footer";
-import AboutMe from './../../components/Sections/AboutMe'
+import Banner from '../../components/Sections/Banner'
 import Contacts from './../../components/Sections/Contacts'
-import Packages from './../../components/Sections/Packages'
+import Home from '../../components/Sections/Home'
+import Wegbegleitung from '../../components/Sections/Wegbegleitung'
+import Schwangerschaft from '../../components/Sections/Schwangerschaft'
 import { useState } from "react";
 
 function HomePage() {
@@ -30,10 +32,12 @@ function HomePage() {
   return (
     <div className="bg-white">
        <Navbar scrollToComponent={scrollToComponent} />
-      <AboutMe id='AboutMe'/>
+      <Banner id='Banner'/>
       <Contacts id='Contacts'/>
-      <Packages id='Packages'/>
-      <Footer></Footer>
+      <Home id='Home'/>
+      <Wegbegleitung/>
+      <Schwangerschaft/>
+      <Footer/>
     </div>
   );
 }

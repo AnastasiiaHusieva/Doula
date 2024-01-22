@@ -6,9 +6,12 @@ module.exports = {
       screens: {
         xs: "480px",
       },
+      fontFamily: {
+        'lora': ['Lora', 'serif'], 
+      },
       colors: {
         beige: {
-          light: "#EECEB0",
+          light: "#EECEB1",
           dark: "#A96449",
           lightest: "#FDFDFD",
           // lightest: '#FDFDFD'

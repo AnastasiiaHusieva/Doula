@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { FaTimes } from "react-icons/fa";
+import { FaTimes, FaInstagram } from "react-icons/fa";
+import { FiPhoneCall, FiMenu } from "react-icons/fi";
 import "./Navbar.css";
 
 function Navbar({ scrollToComponent }) {
@@ -17,6 +18,7 @@ function Navbar({ scrollToComponent }) {
   };
   return (
     <nav className="bg-beige-dark h-12 opacity-1">
+
       {isOpen && (
         <div className="">
           <div className="flex flex-col  bg-black ">
@@ -38,24 +40,19 @@ function Navbar({ scrollToComponent }) {
           </div>
         </div>
       )}
-      <div onClick={handleMenuClick} className=" flex justify-end  ">
-        <button>
-          <img
-            className="w-5 p-1"
-            src="/photos/Icons/instagram.png"
-            alt="menu"
-          />
-        </button>
-        <button>
-          <img
-            className="w-5 p-1"
-            src="/photos/Icons/phone-call.png"
-            alt="menu"
-          />
-        </button>
-        <button>
-          <img className="w-5 " src="/photos/Icons/menu.png" alt="menu" />
-        </button>
+      <div onClick={handleMenuClick} className=" flex justify-end">
+        <div className="flex justify-center items-center space-x-4 p-2">
+          <div className="w-8 h-8 bg-beige-light text-beige-dark  rounded-full flex justify-center items-center">
+            <FaInstagram />
+          </div>
+          <div className="w-8 h-8 bg-beige-light text-beige-dark rounded-full flex justify-center items-center">
+            <FiPhoneCall />
+          </div>
+          <div className="w-8 h-8 bg-beige-light text-beige-dark rounded-full flex justify-center items-center">
+            <FiMenu />
+          </div>
+        </div>
+
         {/* <button onClick={() => handleScrollClick("AboutMe")}>Über mich</button>
         <button onClick={() => handleScrollClick("Packages")}>
           Mein Angebot
