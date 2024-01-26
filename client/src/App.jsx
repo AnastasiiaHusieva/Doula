@@ -9,15 +9,23 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
-import Calendar from "./components/Calendar/Calendar";
 
 function App() {
   return (
-    <div className="App h-full">
+    <div className="App">
+      <Navbar />
+
       <Routes>
         <Route path="/" element={<HomePage />} />
 
-        <Route path="/calendar" element={<Calendar />} />
+        <Route
+          path="/profile"
+          element={
+            <IsPrivate>
+              <ProfilePage />
+            </IsPrivate>
+          }
+        />
 
         <Route
           path="/signup"

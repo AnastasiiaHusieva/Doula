@@ -6,25 +6,3 @@
 body {
   margin: 0;
 }
-
-p, h1, h2, h3 {
-  font-family: 'lora', serif;
-}
-
-.wavy-border-container {
-  display: inline-block;
-  position: relative;
-}
-
-.wavy-border-container::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -10px;
-  height: 20px; 
-  /* background-image: url('path-to-your-wave-image.png');  */
-  background-size: cover;
-}
-
-
