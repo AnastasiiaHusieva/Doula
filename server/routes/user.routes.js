@@ -5,6 +5,6 @@ router.get("/", (req, res, next) => {
   res.json("All good in here");
 });
 
-router.post("/");
+// router.post("/");
 
 module.exports = router;

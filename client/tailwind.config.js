@@ -7,7 +7,8 @@ module.exports = {
         xs: "480px",
       },
       fontFamily: {
-        'lora': ['Lora', 'serif'], 
+        lora: ["Lora", "serif"],
+        "dancing-script": ["Dancing Script", "serif"],
       },
       colors: {
         beige: {
