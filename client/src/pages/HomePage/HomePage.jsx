@@ -6,6 +6,7 @@ import Contacts from './../../components/Sections/Contacts'
 import Home from '../../components/Sections/Home'
 import Wegbegleitung from '../../components/Sections/Wegbegleitung'
 import Schwangerschaft from '../../components/Sections/Schwangerschaft'
+import Geburtsphase from '../../components/Sections/Geburtsphase'
 import { useState } from "react";
 
 function HomePage() {
@@ -37,6 +38,7 @@ function HomePage() {
       <Home id='Home'/>
       <Wegbegleitung/>
       <Schwangerschaft/>
+      <Geburtsphase/>
       <Contacts id='Contacts'/>
       <Footer/>
     </div>
