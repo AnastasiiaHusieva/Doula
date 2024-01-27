@@ -45,26 +45,26 @@ function Contacts() {
     }
   };
   return (
-    <div id="Contacts" className="screens-xs  ">
+    <div id="Contacts" className="screens-xs  lg:w-3/4 xl:w-1/2 mx-auto ">
       <form
         onSubmit={handleSubmit}
-        className="p-2 mb-20  bg-beige-dark rounded  text-beige-light xs:text-xl"
+        className="xs:p-2 mb-20  bg-beige-dark rounded  text-beige-light xs:text-xl lg:text-2xl  md:px-8 mx:justify-center"
       >
         <div>
           <h2 className="p-2 font-dancing-script text-[170%] pb-5 ">
             Contact Me
           </h2>
         </div>
-        <div className="flex flex-row gap-5 xs:flex-row xs:justify-between rounded ">
+        <div className="flex flex-row gap-5 xs:flex-row md:justify-center justify-between rounded ">
           <input
-            className="bg-beige-dark border-2 border-beige-light xs:w-32  rounded placeholder-beige-light pl-2"
+            className="bg-beige-dark border-2 border-beige-light xs:w-32 lg:w-1/6 rounded placeholder-beige-light pl-2"
             type="text"
             placeholder="  Name"
             onChange={(e) => setName(e.target.value)}
             value={name}
           ></input>
           <input
-            className="bg-beige-dark border-2 border-beige-light rounded xs:w-72 placeholder-beige-light pl-2"
+            className="bg-beige-dark border-2 border-beige-light lg:w-2/6 rounded xs:w-72 placeholder-beige-light pl-2"
             type="email"
             placeholder="  Email"
             onChange={(e) => setEmail(e.target.value)}
