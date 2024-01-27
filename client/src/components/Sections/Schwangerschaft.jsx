@@ -9,7 +9,7 @@ function Schwangerschaft() {
                     <p className="text-beige-dark text-lg px-10 mt-10"> … sprechen wir über das, was dich erwartet und wie dies dein Leben verändert. Ich beantworte deine Fragen und gehe auf deine Wünsche, Bedürfnisse, Sorgen und Ängste im Hinblick auf Geburt und Kind ein.
                         Wenn Du möchtest, erstellen wir gemeinsam einen Geburts- und Wochenbettplan, sodass du bestmöglich auf das Kommende vorbereitet bist. Wir finden heraus, was dir gut tut, damit du dich vor und während der Geburt entspannen kannst und ins Vertrauen kommst – durch Meditationen und Massagen.  </p>
                 </div>
-                <img className="flex-basis w-80 mr-20 rounded-xl image-shadow" src="/photos/PersonalPhotos/Pregnancy.jpeg" alt="Schwangerschaft" />
+                <img className="flex-basis w-80 mr-20 rounded-xl image-shadow" src="/photos/Pregnancy.jpeg" alt="Schwangerschaft" />
             </div>
             
             <div className="flex gap-10 space-around mt-10 py-10" id='Geburtsphase'>
