@@ -1,15 +1,14 @@
-function Footer () {
-   return (
-       <div className='bg-beige-dark'>
-    <div>
-    <h2>Contacts</h2>
-   
+function Footer() {
+  return (
+    <div className="bg-beige-dark">
+      <div>
+        <h2>Contact</h2>
+      </div>
+      <div>
+        <h2>Social Media</h2>
+      </div>
     </div>
-    <div>
-       <h2>Social Media</h2>
-    </div>
-       </div>
-   )
-   }
-   
-   export default Footer;
+  );
+}
+
+export default Footer;
