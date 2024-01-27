@@ -17,7 +17,7 @@ const Popup = ({ eventInfo }) => {
 
               {eventInfo._def.extendedProps.message}
             </p>
-            <p className="pb-5">
+            <p className="pb-4">
               {" "}
               <strong>Phone: </strong>
               {eventInfo._def.extendedProps.phoneNumber}
