@@ -5,6 +5,8 @@ function Contacts() {
   const [email, setEmail] = useState("");
   const [betreff, setBetreff] = useState("");
   const [text, setText] = useState("");
+  const [familienname, setfamilienName] = useState("");
+  const [telefonNummer, setTelefonNummer] = useState("");
   console.log(name);
   console.log(email);
   console.log(betreff);
@@ -64,6 +66,13 @@ function Contacts() {
             value={name}
           ></input>
           <input
+            className="bg-beige-dark border-2 border-beige-light xs:w-32 lg:w-1/6 rounded placeholder-beige-light pl-2"
+            type="text"
+            placeholder="  Familienname"
+            onChange={(e) => setfamilienName(e.target.value)}
+            value={familienname}
+          ></input>
+          <input
             className="bg-beige-dark border-2 border-beige-light lg:w-2/6 rounded xs:w-72 placeholder-beige-light pl-2"
             type="email"
             placeholder="  Email"
@@ -77,6 +86,13 @@ function Contacts() {
             type="text"
             placeholder="  Betreff"
             onChange={(e) => setBetreff(e.target.value)}
+            value={betreff}
+          ></input>
+          <input
+            className="bg-beige-dark border-2 border-beige-light rounded xs:w-37 plas placeholder-beige-light pl-2"
+            type="text"
+            placeholder="  TelefonNummer"
+            onChange={(e) => setTelefonNummer(e.target.value)}
             value={betreff}
           ></input>
         </div>

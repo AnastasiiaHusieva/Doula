@@ -61,14 +61,12 @@ function Navbar({ scrollToComponent }) {
           <div className="w-8 h-8 bg-beige-light text-beige-dark rounded-full flex justify-center items-center">
             <FiPhoneCall />
           </div>
-          {isMobile && (
-            <div
-              onClick={handleMenuClick}
-              className="w-8 h-8 bg-beige-light text-beige-dark rounded-full flex justify-center items-center"
-            >
-              <FiMenu />
-            </div>
-          )}
+          <div
+            onClick={handleMenuClick}
+            className="w-8 h-8 bg-beige-light text-beige-dark rounded-full flex justify-center items-center shadow-md"
+          >
+            <FiMenu />
+          </div>
         </div>
 
         {/* <button onClick={() => handleScrollClick("AboutMe")}>Über mich</button>
@@ -87,37 +85,35 @@ function Navbar({ scrollToComponent }) {
         </Link> */}
       </div>
       {isMobile && isOpen && (
-        <div className="">
-          <div className="flex flex-col bg-beige-dark opacity-90 items-start p-3 pr-5">
-            {/* <FaTimes className="text-beige-lightest" onClick={handleMenuClick} /> */}
-            <button
-              className="text-beige-lightest"
-              onClick={() => handleScrollClick("AboutMe")}
-            >
-              Über mich
-            </button>
-            <button
-              className="text-beige-lightest"
-              onClick={() => handleScrollClick("Packages")}
-            >
-              Mein Angebot
-            </button>
-            <button
-              className="text-beige-lightest"
-              onClick={() => handleScrollClick("Contacts")}
-            >
-              Kontakt
-            </button>
+        <div className=" w-20 h-[600px] flex flex-col bg-beige-dark opacity-90 items-start p-3 pr-5">
+          {/* <FaTimes className="text-beige-lightest" onClick={handleMenuClick} /> */}
+          <button
+            className="text-beige-lightest"
+            onClick={() => handleScrollClick("AboutMe")}
+          >
+            Über mich
+          </button>
+          <button
+            className="text-beige-lightest"
+            onClick={() => handleScrollClick("Packages")}
+          >
+            Mein Angebot
+          </button>
+          <button
+            className="text-beige-lightest"
+            onClick={() => handleScrollClick("Contacts")}
+          >
+            Kontakt
+          </button>
 
-            <Link to="/calendar">
-              <button className="text-beige-lightest">My Calendar</button>
-              <img
-                src="https://picsum.photos/id/402/200/300"
-                style={{ width: 50, height: 50, borderRadius: 25 }}
-                alt="profile"
-              />
-            </Link>
-          </div>
+          <Link to="/calendar">
+            <button className="text-beige-lightest">My Calendar</button>
+            <img
+              src="https://picsum.photos/id/402/200/300"
+              style={{ width: 50, height: 50, borderRadius: 25 }}
+              alt="profile"
+            />
+          </Link>
         </div>
       )}
     </nav>
