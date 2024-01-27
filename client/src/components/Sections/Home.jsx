@@ -1,13 +1,13 @@
 function Home() {
   return (
     <div id='Home'>
-      <div className='flex justify-between'>
+      <div className='flex justify-between relative'>
         <img className='w-1/2 ml-10 rounded-xl' src="/photos/PersonalPhotos/NZ6_0602.jpg" alt="FirstPhoto" />
-        <div className='flex flex-col '>
-          <h1 className='text-8xl'>Spüren.</h1>
-          <h1 className='text-8xl'>Halten.</h1>
-          <h1 className='text-8xl'>Begleiten.</h1>
-        </div>
+        <div className='flex flex-col bottom-0 right-0 absolute'>
+          <h1 className='sm:text-8xl font-dancing-script text-beige-lightest '>Spüren.</h1>
+          <h1 className='sm:text-8xl font-dancing-script text-beige-lightest '>Halten.</h1>
+          <h1 className='sm:text-8xl font-dancing-script text-beige-lightest '>Begleiten.</h1>
+        </div> 
       </div>
       <p>Ich heiße Ann-Sofie und bin Doula in Heidelberg.</p>
       <p>Ihr werdet Eltern und hattet möglicherweise schon bewegende Momente während der bisherigen Schwangerschaft? </p>
