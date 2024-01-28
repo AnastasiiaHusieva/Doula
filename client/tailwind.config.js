@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       screens: {
         xs: "480px",
+        xl: "1280px",
       },
       fontFamily: {
         lora: ["Lora", "serif"],
