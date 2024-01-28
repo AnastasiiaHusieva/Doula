@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 function Contacts() {
   const [name, setName] = useState("");
@@ -6,7 +6,20 @@ function Contacts() {
   const [betreff, setBetreff] = useState("");
   const [text, setText] = useState("");
   const [familienname, setfamilienName] = useState("");
-  const [telefonNummer, setTelefonNummer] = useState("");
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  const handleResize = () => {
+    setIsMobile(window.innerWidth < 768);
+  };
+
+  // Set up an effect for window resize
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener on component unmount
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   console.log(name);
   console.log(email);
   console.log(betreff);
@@ -47,71 +60,128 @@ function Contacts() {
     }
   };
   return (
-    <div id="Contacts" className="screens-xs  lg:w-3/4 xl:w-1/2 mx-auto ">
+    <div id="Contacts" className="screens-xs  lg:w-1/2  mx-auto ">
       <form
         onSubmit={handleSubmit}
-        className="xs:p-2 mb-20  bg-beige-dark rounded  text-beige-light xs:text-xl lg:text-2xl  md:px-8 mx:justify-center"
+        className="xs:p-2 my-20 border-2 border-beige-light  rounded-xl  text-beige-light xs:text-xl lg:text-2xl  md:px-8 mx:justify-center flex flex-col gap-5 shadow-xl"
       >
         <div>
-          <h2 className="p-2 font-dancing-script text-[170%] pb-5 ">
+          <h2 className="p-2 font-dancing-script text-beige-dark text-[170%] mb-2 ">
             Contact Me
           </h2>
         </div>
-        <div className="flex flex-row gap-5 xs:flex-row md:justify-center justify-between rounded ">
-          <input
-            className="bg-beige-dark border-2 border-beige-light xs:w-32 lg:w-1/6 rounded placeholder-beige-light pl-2"
-            type="text"
-            placeholder="  Name"
-            onChange={(e) => setName(e.target.value)}
-            value={name}
-          ></input>
-          <input
-            className="bg-beige-dark border-2 border-beige-light xs:w-32 lg:w-1/6 rounded placeholder-beige-light pl-2"
-            type="text"
-            placeholder="  Familienname"
-            onChange={(e) => setfamilienName(e.target.value)}
-            value={familienname}
-          ></input>
-          <input
-            className="bg-beige-dark border-2 border-beige-light lg:w-2/6 rounded xs:w-72 placeholder-beige-light pl-2"
-            type="email"
-            placeholder="  Email"
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-          ></input>
-        </div>
-        <div className="text-left pt-2 pb-2">
-          <input
-            className="bg-beige-dark border-2 border-beige-light rounded xs:w-37 plas placeholder-beige-light pl-2"
-            type="text"
-            placeholder="  Betreff"
-            onChange={(e) => setBetreff(e.target.value)}
-            value={betreff}
-          ></input>
-          <input
-            className="bg-beige-dark border-2 border-beige-light rounded xs:w-37 plas placeholder-beige-light pl-2"
-            type="text"
-            placeholder="  TelefonNummer"
-            onChange={(e) => setTelefonNummer(e.target.value)}
-            value={betreff}
-          ></input>
+        <div className="flex flex-col  gap-4">
+          <div className="flex  gap-2   rounded ">
+            <input
+              className=" border-2 border-beige-light lg:w-2/3 rounded-lg placeholder-beige-light    bg-beige-lightest  text-lg  px-6 py-2 shadow-md"
+              type="text"
+              placeholder="Name"
+              onChange={(e) => setName(e.target.value)}
+              value={name}
+            ></input>
+            <input
+              className=" border-2 border-beige-light lg:w-2/3 lg:w-1/6 rounded-lg placeholder-beige-light    bg-beige-lightest  text-lg  px-6 py-2 shadow-md"
+              type="text"
+              placeholder="Familienname"
+              onChange={(e) => setfamilienName(e.target.value)}
+              value={familienname}
+            ></input>
+          </div>
+          <div className="flex  gap-2    rounded ">
+            <input
+              className=" border-2 border-beige-light lg:w-2/3 lg:w-1/6 rounded-lg placeholder-beige-light    bg-beige-lightest  text-lg  px-6 py-2 shadow-md"
+              type="email"
+              placeholder="Email"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+            ></input>
+            <input
+              className=" border-2 border-beige-light  lg:w-2/3 rounded-lg placeholder-beige-light    bg-beige-lightest  text-lg  px-6 py-2 shadow-md"
+              type="text"
+              placeholder="Betreff"
+              onChange={(e) => setBetreff(e.target.value)}
+              value={betreff}
+            ></input>
+          </div>
         </div>
         <div>
           <textarea
             name="message"
             placeholder="  Hier du kannst etwas schreiben"
             rows="6"
-            className="w-[100%] bg-beige-light rounded placeholder-beige-dark pl-2 text-beige-dark "
+            className="w-[100%] bg-beige-lightest rounded border-2 border-beige-light placeholder-beige-light pl-2 text-beige-dark text-lg py-4 shadow-md"
             onChange={(e) => setText(e.target.value)}
             value={text}
           ></textarea>
-          <div className="">
-            <button className="bg-beige text-beige-light py-2 px-4 rounded transition duration-500 hover:bg-beige-lightest">
-              ABSENDEN
+          <div className=" my-3">
+            <button className="bg-beige-lightest text-beige-dark border border-beige-light py-3 px-8 rounded-2xl transition duration-500 hover:bg-beige-light hover:text-beige-lightest hover:shadow-2xl shadow-md ">
+              Absenden
             </button>
           </div>
         </div>
       </form>
+
+      {isMobile && (
+        <form
+          onSubmit={handleSubmit}
+          className="xs:p-2 my-20 border-2 border-beige-light  rounded-xl  text-beige-light xs:text-xl lg:text-2xl  md:px-8 mx:justify-center flex flex-col gap-5 shadow-xl"
+        >
+          <div>
+            <h2 className="p-2 font-dancing-script text-beige-dark text-[170%] mb-2 ">
+              Contact Me
+            </h2>
+          </div>
+          <div className="flex flex-col justify-start gap-4">
+            <div className="flex  gap-2    rounded ">
+              <input
+                className=" border-2 border-beige-light lg:w-2/3 lg:w-1/6 rounded-lg placeholder-beige-light    bg-beige-lightest  text-lg  px-6 py-2 shadow-md"
+                type="text"
+                placeholder="Name"
+                onChange={(e) => setName(e.target.value)}
+                value={name}
+              ></input>
+              <input
+                className=" border-2 border-beige-light lg:w-2/3 lg:w-1/6 rounded-lg placeholder-beige-light    bg-beige-lightest  text-lg  px-6 py-2 shadow-md"
+                type="text"
+                placeholder="Familienname"
+                onChange={(e) => setfamilienName(e.target.value)}
+                value={familienname}
+              ></input>
+            </div>
+            <div className="flex  gap-2    rounded ">
+              <input
+                className=" border-2 border-beige-light lg:w-2/3 lg:w-1/6 rounded-lg placeholder-beige-light    bg-beige-lightest  text-lg  px-6 py-2 shadow-md"
+                type="email"
+                placeholder="Email"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+              ></input>
+              <input
+                className=" border-2 border-beige-light  lg:w-2/3 rounded-lg placeholder-beige-light    bg-beige-lightest  text-lg  px-6 py-2 shadow-md"
+                type="text"
+                placeholder="Betreff"
+                onChange={(e) => setBetreff(e.target.value)}
+                value={betreff}
+              ></input>
+            </div>
+          </div>
+          <div>
+            <textarea
+              name="message"
+              placeholder="  Hier du kannst etwas schreiben"
+              rows="6"
+              className="w-[100%] bg-beige-lightest rounded border-2 border-beige-light placeholder-beige-light pl-2 text-beige-dark text-lg py-4 shadow-md"
+              onChange={(e) => setText(e.target.value)}
+              value={text}
+            ></textarea>
+            <div className=" my-3">
+              <button className="bg-beige-lightest text-beige-dark border border-beige-light py-3 px-8 rounded-2xl transition duration-500 hover:bg-beige-light hover:text-beige-lightest hover:shadow-2xl shadow-md ">
+                Absenden
+              </button>
+            </div>
+          </div>
+        </form>
+      )}
     </div>
   );
 }
