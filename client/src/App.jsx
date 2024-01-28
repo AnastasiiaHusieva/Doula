@@ -38,9 +38,9 @@ function App() {
         <Route
           path="/login"
           element={
-            <IsPrivate>
+            <IsAnon>
               <LoginPage />
-            </IsPrivate>
+            </IsAnon>
           }
         />
         <Route path="/calendar" element={<MyCalendar />} />
